@@ -20,7 +20,7 @@
         }
 
         //Create a new function called getComputerChoice
-        //Give getComputerChoice a random value from 0 to 1
+        //Give ComputerChoice a random value from 0 to 1
         //If getComputerCHoice equals anywhere from 0 to 0.33 make it return the value "rock"
         //If getComputerCHoice equals anywhere from 0.33 to 0.66 make it return the value "paper"
         //If getComputerCHoice equals anywhere from 0.66 to 1 make it return the value "scissors"
@@ -30,15 +30,35 @@
             return humanChoice;
         }
 
-        console.log(getHumanChoice());
         //Create a new function called getHumanChoice
-        //Ask the user "What will you pick: " and store it into getHumanChoice
+        //Ask the user "What will you pick: " and store it into HumanChoice
+
+        let humanScore = 0;
+        let computerScore = 0;
         
         //Create two new variables named humanScore and computerScore
         //give them the value of 0
 
+        function playRound (humanChoice, computerChoice) {
+            if (humanChoice === computerChoice) {
+                console.log("draw");
+                console.log("The score is " + humanScore + " : " + computerScore);
+            } else if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "scissors" && computerChoice === "paper" || humanChoice === "paper" && computerChoice === "rock") {
+                console.log("You win!");
+                console.log("The score is " + (humanScore + 1) + " : " + computerScore);
+            } else if (humanChoice === "scissors" && computerChoice === "rock" || humanChoice === "paper" && computerChoice === "scissors" || humanChoice === "rock" && computerChoice === "paper") {
+                console.log("You lose!");
+                console.log("The score is " + humanScore + " : " + (computerScore + 1));
+            }
+        }
+
+        const humanSelector = getHumanChoice();
+        const computerSelector = getComputerChoice();
+
+        playRound(humanSelector, computerSelector);
+
         //Create a new function named playRound with 2 parameters named humanChoice and computerChoice
-        //Make the parameters case-sensitive
+        //Make the parameters case-insensitive
         //Define when somebody loses and give them a message.
         //Increment the humanScore or the computerScore by 1 based on who won
 
