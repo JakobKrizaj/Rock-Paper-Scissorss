@@ -7,16 +7,24 @@
 </head>
 <body>
     <script>
-        let getComputerCHoice = Math.random();
-        console.log(getComputerCHoice);
+        function getComputerChoice (){
+            let computerChoice = Math.random();
+
+            if (computerChoice < 0.33) {
+                return "rock";    
+            } else if (0.33 < computerChoice && computerChoice < 0.66 ) {
+                return "paper";
+            } else if (computerChoice > 0.66) {
+                return "scissors";
+            }
+        }
 
         //Create a new function called getComputerChoice
         //Give getComputerChoice a random value from 0 to 1
-
-
         //If getComputerCHoice equals anywhere from 0 to 0.33 make it return the value "rock"
         //If getComputerCHoice equals anywhere from 0.33 to 0.66 make it return the value "paper"
         //If getComputerCHoice equals anywhere from 0.66 to 1 make it return the value "scissors"
+
 
         //Create a new function called getHumanChoice
         //Ask the user "What will you pick: " and store it into getHumanChoice
