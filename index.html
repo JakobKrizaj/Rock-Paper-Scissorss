@@ -49,25 +49,37 @@
 
             function playRound (humanChoice, computerChoice) {
                 if (humanChoice === computerChoice) {
+                    console.log("Computer: " + computerChoice);
                     console.log("draw");
-                    console.log("The score is " + humanScore + " : " + computerScore);
-                } else if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "scissors" && computerChoice === "paper" || humanChoice === "paper" && computerChoice === "rock") {
+                    console.log("The score is " + humanScore + " : " + computerScore + "\n......");
+                } else if ((humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "scissors" && computerChoice === "paper") || (humanChoice === "paper" && computerChoice === "rock")) {
+                    humanScore = humanScore + 1;
+                    console.log("Computer: " + computerChoice);
                     console.log("You win!");
-                    console.log("The score is " + (humanScore + 1) + " : " + computerScore);
-                } else if (humanChoice === "scissors" && computerChoice === "rock" || humanChoice === "paper" && computerChoice === "scissors" || humanChoice === "rock" && computerChoice === "paper") {
+                    console.log("The score is " + (humanScore) + " : " + computerScore + "\n......");
+                } else if ((humanChoice === "scissors" && computerChoice === "rock") || (humanChoice === "paper" && computerChoice === "scissors") || (humanChoice === "rock" && computerChoice === "paper")) {
+                    computerScore = computerScore + 1;
+                    console.log("Computer: " + computerChoice);
                     console.log("You lose!");
-                    console.log("The score is " + humanScore + " : " + (computerScore + 1));
+                    console.log("The score is " + humanScore + " : " + (computerScore) + "\n......");
                 }
             }
 
-            const humanSelector = getHumanChoice();
-            const computerSelector = getComputerChoice();
+            function humanSelector(){
+                const humanSelector = getHumanChoice();
+                return humanSelector;
+            }
 
-            playRound(humanSelector, computerSelector);
-            playRound(humanSelector, computerSelector);
-            playRound(humanSelector, computerSelector);
-            playRound(humanSelector, computerSelector);
-            playRound(humanSelector, computerSelector);     
+            function computerSelector() {
+                const computerSelector = getComputerChoice();
+                return computerSelector;
+            }
+
+            playRound(humanSelector(), computerSelector());
+            playRound(humanSelector(), computerSelector());
+            playRound(humanSelector(), computerSelector());
+            playRound(humanSelector(), computerSelector());
+            playRound(humanSelector(), computerSelector());     
         }
 
         playGame();
