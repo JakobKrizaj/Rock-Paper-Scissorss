@@ -33,34 +33,44 @@
         //Create a new function called getHumanChoice
         //Ask the user "What will you pick: " and store it into HumanChoice
 
-        let humanScore = 0;
-        let computerScore = 0;
         
         //Create two new variables named humanScore and computerScore
         //give them the value of 0
 
-        function playRound (humanChoice, computerChoice) {
-            if (humanChoice === computerChoice) {
-                console.log("draw");
-                console.log("The score is " + humanScore + " : " + computerScore);
-            } else if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "scissors" && computerChoice === "paper" || humanChoice === "paper" && computerChoice === "rock") {
-                console.log("You win!");
-                console.log("The score is " + (humanScore + 1) + " : " + computerScore);
-            } else if (humanChoice === "scissors" && computerChoice === "rock" || humanChoice === "paper" && computerChoice === "scissors" || humanChoice === "rock" && computerChoice === "paper") {
-                console.log("You lose!");
-                console.log("The score is " + humanScore + " : " + (computerScore + 1));
-            }
-        }
-
-        const humanSelector = getHumanChoice();
-        const computerSelector = getComputerChoice();
-
-        playRound(humanSelector, computerSelector);
 
         //Create a new function named playRound with 2 parameters named humanChoice and computerChoice
         //Make the parameters case-insensitive
         //Define when somebody loses and give them a message.
         //Increment the humanScore or the computerScore by 1 based on who won
+
+        function playGame () {
+            let humanScore = 0;
+            let computerScore = 0;
+
+            function playRound (humanChoice, computerChoice) {
+                if (humanChoice === computerChoice) {
+                    console.log("draw");
+                    console.log("The score is " + humanScore + " : " + computerScore);
+                } else if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "scissors" && computerChoice === "paper" || humanChoice === "paper" && computerChoice === "rock") {
+                    console.log("You win!");
+                    console.log("The score is " + (humanScore + 1) + " : " + computerScore);
+                } else if (humanChoice === "scissors" && computerChoice === "rock" || humanChoice === "paper" && computerChoice === "scissors" || humanChoice === "rock" && computerChoice === "paper") {
+                    console.log("You lose!");
+                    console.log("The score is " + humanScore + " : " + (computerScore + 1));
+                }
+            }
+
+            const humanSelector = getHumanChoice();
+            const computerSelector = getComputerChoice();
+
+            playRound(humanSelector, computerSelector);
+            playRound(humanSelector, computerSelector);
+            playRound(humanSelector, computerSelector);
+            playRound(humanSelector, computerSelector);
+            playRound(humanSelector, computerSelector);     
+        }
+
+        playGame();
 
         //Create a new function named playGame
         //Make playGame count playRound to 5
